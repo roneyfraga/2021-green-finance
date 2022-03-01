@@ -1,0 +1,16 @@
+bookdown::gitbook:
+  css: style.css
+  config:
+    toc:
+      before: |
+        <li><a href="./">Corn Biorefinery</a></li>
+      after: |
+        <li><a href="https://roneyfraga.com" target="blank">roneyfraga.com</a></li>
+    # download: ["pdf", "epub"]
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+# bookdown::pdf_book:
+#   includes:
+#     in_header: preamble.tex
+# bookdown::epub_book: default

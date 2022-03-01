@@ -1,0 +1,9 @@
+
+# Methodology {#methodology}
+
+
+```{r metodologia-completa, echo=FALSE, fig.cap="", out.width = '90%'}
+knitr::include_graphics("images/metodologia_completa.png")
+```
+
+
