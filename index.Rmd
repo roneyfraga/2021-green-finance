@@ -15,6 +15,9 @@ link-citations: yes
 
 Green Finance' Literature analysis. 
 
+
+Full code available here: [https://github.com/roneyfraga/2021-green-finance](https://github.com/roneyfraga/2021-green-finance)
+
 ```{r include=FALSE}
 knitr::opts_chunk$set(cache = TRUE)
 options(scipen = 999)
@@ -56,7 +59,7 @@ library(ggraph)
 library(tidygraph)
 library(visNetwork)
 library(DT) 
-library(caiporar)
+# library(caiporar)
 library(birddog)
 library(tictoc)
 
@@ -70,5 +73,8 @@ library(topicmodels)
 library(textmineR)
 
 source('utils.R')
+
+# renv
+library(renv)
 ```
 

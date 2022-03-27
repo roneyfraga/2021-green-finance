@@ -1,0 +1,13 @@
+
+# Software version {#software-version}
+
+Analysis were done with `R` [@rcore]. The network was plotted with `vosViewer` [@vosviewer].
+
+```{r eval = T, echo = T, warning = FALSE, error = TRUE, tidy = FALSE, message = FALSE}
+# renv::init()
+# renv::snapshot()
+# renv::restore()
+
+devtools::session_info()
+```
+
