@@ -40,6 +40,9 @@ include     se falso, executa mas não inclui o chunk no relatório
 
 ```{r eval = T, echo = F, warning = F, error = T, tidy = F, message = F}
 
+# packageVersion('igraph')
+# renv::install('igraph@1.2.6')
+
 # carregar pacotes
 library(pipeR) 
 library(rio) 
@@ -73,8 +76,5 @@ library(topicmodels)
 library(textmineR)
 
 source('utils.R')
-
-# renv
-library(renv)
 ```
 
