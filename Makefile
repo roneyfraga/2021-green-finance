@@ -13,5 +13,8 @@ htmlopen:
 	firefox _book/$(file).html &
 
 rsync_book:
-	rsync -avzhe ssh --info=progress2 --delete _book/ bibr@159.89.36.185:/var/www/roneyfraga.com/public_html/projects/2021-green-finance/
+	rsync -avzhe "ssh -i ~/.chave/chave_limpa" --info=progress2 --delete _book/ bibr@159.89.36.185:/var/www/roneyfraga.com/public_html/projects/2021-green-finance/
 
+all:
+	Rscript -e 'library(bookdown);bookdown::render_book("$(file).Rmd", "all")'
+	rsync -avzhe "ssh -i ~/.chave/chave_limpa" --info=progress2 --delete _book/ bibr@159.89.36.185:/var/www/roneyfraga.com/public_html/projects/2021-green-finance/

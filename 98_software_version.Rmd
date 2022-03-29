@@ -12,5 +12,6 @@ Analysis were done with `R` [@rcore]. The network was plotted with `vosViewer` [
 # renv::repair()
 
 devtools::session_info()
+renv::status()
 ```
 
