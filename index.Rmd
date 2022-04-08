@@ -43,7 +43,6 @@ include     se falso, executa mas não inclui o chunk no relatório
 # packageVersion('igraph')
 # renv::install('igraph@1.2.6')
 
-# carregar pacotes
 library(pipeR) 
 library(rio) 
 library(bibliometrix)
@@ -62,7 +61,7 @@ library(ggraph)
 library(tidygraph)
 library(visNetwork)
 library(DT) 
-# library(caiporar)
+library(sjPlot)
 library(birddog)
 library(tictoc)
 

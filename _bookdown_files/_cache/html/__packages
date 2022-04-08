@@ -17,6 +17,7 @@ ggraph
 tidygraph
 visNetwork
 DT
+sjPlot
 birddog
 tictoc
 textclean
@@ -27,4 +28,3 @@ tidytext
 topicmodels
 Matrix
 textmineR
-renv

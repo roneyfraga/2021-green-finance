@@ -43,25 +43,24 @@ M %>>%
 
 d$lnp <- log(d$Papers)
 
-# ajustar parametros via mqo 
+# linear model
 m1 <- lm(lnp ~ trend, data = d)
 # summary(m1)
 
 beta0 <- m1$coefficients[[1]]
 beta1 <- m1$coefficients[[2]]
 
-# modelo não linear
-# 2000 é o primeiro ano da série
+# no linear model
 m2 <- nls(Papers ~ b0 * exp(b1 * (PY - 1990)), start = list(b0 = beta0, b1 = beta1), data = d)
 # summary(m2)
+sjPlot::tab_model(m2, digits = 3)
 
-# publications estimado
 d$predicted <- 1.26206 * exp(0.169719 * (d$PY - 1990))
 
-# taxa de crescimento anual é de 
+# annual growth rate
 # (exp(0.20089) - 1) * 100
 
-# o período necessário para dobrar o tempo é 
+# doubling time
 # log(2) / 0.200827
 
 d %>>% 
@@ -107,25 +106,24 @@ d0 |>
 
 d$lnp <- log(d$Papers)
 
-# ajustar parametros via mqo 
+# linear model 
 m1 <- lm(lnp ~ trend, data = d)
 # summary(m1)
 
 beta0 <- m1$coefficients[[1]]
 beta1 <- m1$coefficients[[2]]
 
-# modelo não linear
-# 2000 é o primeiro ano da série
+# no linear model 
 m2 <- nls(Papers ~ b0 * exp(b1 * (PY - 1990)), start = list(b0 = beta0, b1 = beta1), data = d)
 # summary(m2)
+sjPlot::tab_model(m2, digits = 3)
 
-# publications estimado
 d$predicted <- 1.26206 * exp(0.169719 * (d$PY - 1990))
 
-# taxa de crescimento anual é de 
+# annual growth rate
 # (exp(0.0533495) - 1) * 100
 
-# o período necessário para dobrar o tempo é 
+# doubling time
 # log(2) / 0.0533495
 ```
 
@@ -227,7 +225,7 @@ writePajek(V(net4)$group_color, 'networks/net4.clu')
 - LogLin default
 - Scale 0
 - Labels 0
-<!-- - Alterei as cores dos vértices -->
+<!-- - Vetex Colors Changed -->
 
 [Network file.](networks/net4_2.png)
 ![Network file.](networks/net4_2.png)
@@ -372,7 +370,7 @@ groups_texts |>
     purrr::map(~ tibble::as_tibble(.)) ->
     group_term_occorrence_phrase
 tictoc::toc()
-## 20 minutes
+## 20 minutes - old computer
 #
 # rio::export(group_term_occorrence_phrase, 'rawfiles/green_finance_group_term_occorrence_phrase_v2.rds')
 
@@ -544,7 +542,7 @@ hubs |>
 
 ### g01  
 
-Autores com 2 ou mais parcerias.
+Authors with 2 or more co-authors.
 
 ```{r eval=T, echo=F, fig.height = 7, fig.width = 12, warning=FALSE, error=TRUE, tidy=FALSE, message=FALSE}
 
@@ -566,7 +564,7 @@ visNetwork(aut$nodes,
 
 ### g02
 
-Autores com 3 ou mais parcerias.
+Authors with 3 or more co-authors.
 
 ```{r eval=T, echo=F, fig.height = 7, fig.width = 12, warning=FALSE, error=TRUE, tidy=FALSE, message=FALSE}
 
@@ -614,14 +612,6 @@ visNetwork(aut$nodes,
 Wikipedia description:
 
 * _In machine learning and natural language processing, a topic model is a type of statistical model for discovering the abstract "topics" that occur in a collection of documents. Topic modeling is a frequently used text-mining tool for discovery of hidden semantic structures in a text body._
-
-Tutorials:
-
-* [A Friendly Introduction to Text Clustering](https://medium.com/swlh/topic-modeling-in-r-with-tidytext-and-textminer-package-latent-dirichlet-allocation-764f4483be73)
-* [YT Short Introduction to Topic Modeling](https://www.youtube.com/watch?v=p1I9Sa1lRvk)
-* [YT Introduction to Topic Modeling with R](https://www.youtube.com/watch?v=IUAHUEy1V0Q)
-* [YT David Blei Palestra](https://www.youtube.com/watch?v=FkckgwMHP2s&t=490s)
-
 
 * STM - Structural Topic Modeling [@roberts2016]
     * allow to use document metadata to improve classification
@@ -744,8 +734,8 @@ stm::stm(documents = stm_g01_doc$documents,
 # ------------------------------
 ## Explore the topic model
 
-# gamma: probabilidade de cada termo pertencer a cada tópico
-# theta: probabilidade de cada documento pertencer a cada tópico
+# gamma 
+# theta
 
 tidytext::tidy(stm_g01_stm) |>
     dplyr::arrange(beta) |>
@@ -932,8 +922,8 @@ stm::stm(documents = stm_g02_doc$documents,
 # ------------------------------
 ## Explore the topic model
 
-# gamma: probabilidade de cada termo pertencer a cada tópico
-# theta: probabilidade de cada documento pertencer a cada tópico
+# gamma
+# theta
 
 tidytext::tidy(stm_g02_stm) |>
     dplyr::arrange(beta) |>
